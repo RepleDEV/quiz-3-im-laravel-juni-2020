@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFollowTable extends Migration
+class CreateArticleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateFollowTable extends Migration
      */
     public function up()
     {
-        Schema::create('follow', function (Blueprint $table) {
+        Schema::create('article', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('followers');
-            $table->integer('following');
+            $table->string('title',255);
+            $table->string('content',255);
+            $table->string('slug',255);
+            $table->string('tag',255);
         });
     }
 
@@ -27,6 +29,6 @@ class CreateFollowTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('follow');
+        Schema::dropIfExists('article');
     }
 }
