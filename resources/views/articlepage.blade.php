@@ -3,6 +3,13 @@
 @section('content')
     <div class="container">
         <h1>{{$article->title}}</h1>
+        <p class="small">Tags</p>
+        <?php
+            $tags = explode(", ",$article->tag);
+            foreach ($tags as $tag) {
+                echo "<button class='btn btn-primary mr-1'>$tag</button>";
+            }
+        ?>
         <hr>
         <p>{{$article->content}}</p>
         <hr>
