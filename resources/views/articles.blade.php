@@ -1,7 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
-    <table class="table">
+    <button class="btn btn-primary float-right" onclick="window.location.href+=`/create`">Create Article</button>
+    <h1>Articles List</h1>
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Title</th>

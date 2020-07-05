@@ -19,9 +19,16 @@ Route::get('/', function () {
 
 Route::prefix('articles')->group(function() {
     Route::get('/','ArticleController@index');
+    Route::post('/', 'ArticleController@add_article');
+
     Route::get('/create', function () {
-        return view('articleform');
+        return view('articleform', ["method" => "POST"]);
     });
+
+    Route::delete('/{id}', 'ArticleController@del_article');
+    Route::put('/{id}', 'ArticleController@save_article_edit');
+    Route::get('/{id}','ArticleController@show_article');
+    Route::get('/{id}/edit', 'ArticleController@show_edit_page');
 });
 
 // Route::get('/items/create', 'ItemController@create'); // menampilkan halaman form
